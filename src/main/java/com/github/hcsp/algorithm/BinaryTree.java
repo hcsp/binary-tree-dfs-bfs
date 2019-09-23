@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -56,18 +57,34 @@ public class BinaryTree {
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        // 递归实现前序遍历
+        // （非递归）借助栈的后进先出特性
         List<Integer> dfsList = new ArrayList<>();
         if (root == null) {
             return dfsList;
         } else {
+            Stack<TreeNode> stack = new Stack<>();
+            // 根节点入栈
+            stack.push(root);
             dfsList.add(root.value);
-            if (root.left != null) {
-                dfsList.addAll(dfs(root.left));
+            TreeNode node = root;
+            while (stack.size() != 0) {
+                while (node.left != null) {
+                    // 当左子树不为空时
+                    // 先根节点，再左节点，最后右节点
+                    dfsList.add(node.left.value);
+                    stack.push(node.left);
+                    node = node.left;
+                }
+                // 每次向上一个节点
+                node = stack.pop();
+                if (node.right != null) {
+                    dfsList.add(node.right.value);
+                    // 同样记得要压入栈，否则后面无法向上
+                    stack.push(node.right);
+                    node = node.right;
+                }
             }
-            if (root.right != null) {
-                dfsList.addAll(dfs(root.right));
-            }
+
             return dfsList;
         }
     }
