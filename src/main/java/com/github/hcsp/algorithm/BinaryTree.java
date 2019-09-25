@@ -1,6 +1,8 @@
 package com.github.hcsp.algorithm;
 
-import java.util.Collections;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class BinaryTree {
@@ -26,12 +28,44 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        return Collections.emptyList();
+        List<Integer> bfsList = new ArrayList<>();
+        Deque<TreeNode> tree = new ArrayDeque<>();
+        if (root == null) {
+            return bfsList;
+        }
+        tree.add(root);
+        while (!tree.isEmpty()) {
+            TreeNode treeNode = tree.removeFirst();
+            bfsList.add(treeNode.value);
+            if (treeNode.left != null) {
+                tree.add(treeNode.left);
+            }
+            if (treeNode.right != null) {
+                tree.add(treeNode.right);
+            }
+        }
+        return bfsList;
     }
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        return Collections.emptyList();
+        List<Integer> dfsList = new ArrayList<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        if (root == null) {
+            return dfsList;
+        }
+        deque.add(root);
+        while (!deque.isEmpty()) {
+            TreeNode treeNode = deque.removeLast();
+            dfsList.add(treeNode.value);
+            if (treeNode.right != null) {
+                deque.add(treeNode.right);
+            }
+            if (treeNode.left != null) {
+                deque.add(treeNode.left);
+            }
+        }
+        return dfsList;
     }
 
     public static class TreeNode {
