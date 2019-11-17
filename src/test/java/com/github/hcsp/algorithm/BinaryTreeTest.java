@@ -1,6 +1,7 @@
 package com.github.hcsp.algorithm;
 
 import java.util.Arrays;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -24,11 +25,13 @@ public class BinaryTreeTest {
 
     @Test
     public void bfsTest() {
-        Assertions.assertEquals(Arrays.asList(1, 2, 3, 4, 5, 6), BinaryTree.bfs(node1));
+        Assertions.assertTrue(BinaryTree.bfs(node1).equals(Arrays.asList(1, 2, 3, 4, 5, 6))
+                || BinaryTree.bfs(node1).equals(Arrays.asList(1, 3, 2, 6, 5, 4)));
     }
 
     @Test
     public void dfsTest() {
-        Assertions.assertEquals(Arrays.asList(1, 2, 4, 5, 3, 6), BinaryTree.dfs(node1));
+        Assertions.assertTrue(BinaryTree.dfs(node1).equals(Arrays.asList(1, 2, 4, 5, 3, 6))
+                || BinaryTree.bfs(node1).equals(Arrays.asList(1, 3, 6, 2, 5, 4)));
     }
 }
