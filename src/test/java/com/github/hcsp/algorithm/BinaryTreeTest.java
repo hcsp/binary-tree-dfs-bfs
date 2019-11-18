@@ -1,7 +1,6 @@
 package com.github.hcsp.algorithm;
 
 import java.util.Arrays;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
