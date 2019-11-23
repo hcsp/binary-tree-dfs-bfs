@@ -31,6 +31,6 @@ public class BinaryTreeTest {
     @Test
     public void dfsTest() {
         Assertions.assertTrue(BinaryTree.dfs(node1).equals(Arrays.asList(1, 2, 4, 5, 3, 6))
-                || BinaryTree.bfs(node1).equals(Arrays.asList(1, 3, 6, 2, 5, 4)));
+                || BinaryTree.dfs(node1).equals(Arrays.asList(1, 3, 6, 2, 5, 4)));
     }
 }
