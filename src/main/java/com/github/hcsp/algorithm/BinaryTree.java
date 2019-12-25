@@ -1,6 +1,7 @@
 package com.github.hcsp.algorithm;
 
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BinaryTree {
@@ -26,13 +27,44 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        return Collections.emptyList();
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode queueNode = queue.removeFirst();
+            list.add(queueNode.value);
+            if (queueNode.left != null) {
+                queue.add(queueNode.left);
+            }
+            if (queueNode.right != null) {
+                queue.add(queueNode.right);
+            }
+        }
+        return list;
     }
 
     // 请实现二叉树的深度优先遍历（前序）
+    /*
+     * 由于是前序的遍历，左孩子要优先于右孩子，所以右孩子要先进栈
+     * */
     public static List<Integer> dfs(TreeNode root) {
-        return Collections.emptyList();
+        LinkedList<TreeNode> stack = new LinkedList<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            list.add(node.value);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+
+        return list;
     }
+
 
     public static class TreeNode {
         int value;
