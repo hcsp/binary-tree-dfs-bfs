@@ -1,13 +1,9 @@
 package com.github.hcsp.algorithm;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Stack;
 
 public class BinaryTree {
-    public static List<Integer> result = new ArrayList<>();
-
     public static void main(String[] args) {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
@@ -29,58 +25,14 @@ public class BinaryTree {
     }
 
     // 请实现二叉树的广度优先遍历（层次遍历）
-
-
     public static List<Integer> bfs(TreeNode root) {
-        if (isEmpty(root)) {
-            return null;
-        }
-        List<Integer> result = new ArrayList<>();
-        ArrayDeque<TreeNode> deque = new ArrayDeque<>();
-        deque.add(root);
-        while (!deque.isEmpty()) {
-            TreeNode removeNode = deque.remove();
-            result.add(removeNode.value);
-            if (removeNode.left != null) {
-                deque.add(removeNode.left);
-            }
-            if (removeNode.right != null) {
-                deque.add(removeNode.right);
-            }
-        }
-        return result;
+        return Collections.emptyList();
     }
-
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        if (isEmpty(root)) {
-            return null;
-        }
-        List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode removeNode = stack.pop();
-            result.add(removeNode.value);
-            if (removeNode.right != null) {
-                stack.push(removeNode.right);
-            }
-            if (removeNode.left != null) {
-                stack.push(removeNode.left);
-            }
-        }
-        return result;
+        return Collections.emptyList();
     }
-
-    private static boolean isEmpty(TreeNode root) {
-        if (root == null) {
-            System.out.println("empty tree");
-            return true;
-        }
-        return false;
-    }
-
 
     public static class TreeNode {
         int value;
