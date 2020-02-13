@@ -2,7 +2,7 @@
 
 请完成[`BinaryTree`](https://github.com/hcsp/binary-tree-dfs-bfs/blob/master/src/main/java/com/github/hcsp/algorithm/BinaryTree.java)中的挑战，实现<ruby>深度优先遍历<rt>DFS</rt></ruby>和<ruby>广度优先遍历<rt>BFS</rt></ruby>。
 
-在提交Pull Request之前，你应当在本地确保所有代码已经编译通过，并且通过了测试(`mvn clean test`)
+在提交Pull Request之前，你应当在本地确保所有代码已经编译通过，并且通过了测试(`mvn clean verify`)
 
 -----
 注意！我们只允许你修改以下文件，对其他文件的修改会被拒绝：
