@@ -1,6 +1,7 @@
 package com.github.hcsp.algorithm;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -24,54 +25,21 @@ public class BinaryTree {
     }
 
     // 请实现二叉树的广度优先遍历（层次遍历）
-    static List<Integer> bfs(TreeNode root) {
-        ArrayList<Integer> result = new ArrayList<>();
-        if (root == null) {
-            return result;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            TreeNode tree = queue.poll();
-            if (tree.left != null) {
-                queue.offer(tree.left);
-            }
-            if (tree.right != null) {
-                queue.offer(tree.right);
-            }
-            result.add(tree.value);
-        }
-        return result;
+    public static List<Integer> bfs(TreeNode root) {
+        return Collections.emptyList();
     }
 
     // 请实现二叉树的深度优先遍历（前序）
-    static List<Integer> dfs(TreeNode root) {
-        ArrayList<Integer> lists = new ArrayList<>();
-        if (root == null) {
-            return lists;
-        }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode tree = stack.pop();
-            // 先往栈中压入右节点，再压左节点，这样出栈就是先左节点后右节点了。
-            if (tree.right != null) {
-                stack.push(tree.right);
-            }
-            if (tree.left != null) {
-                stack.push(tree.left);
-            }
-            lists.add(tree.value);
-        }
-        return lists;
+    public static List<Integer> dfs(TreeNode root) {
+        return Collections.emptyList();
     }
 
-    static class TreeNode {
+    public static class TreeNode {
         int value;
         TreeNode left;
         TreeNode right;
 
-        TreeNode(int value) {
+        public TreeNode(int value) {
             this.value = value;
         }
     }
