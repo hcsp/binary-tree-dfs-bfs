@@ -1,7 +1,8 @@
 package com.github.hcsp.algorithm;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -26,12 +27,42 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        return Collections.emptyList();
+        List<TreeNode> currentNodes = new ArrayList<>();
+        currentNodes.add(root);
+        int index = 0;
+        while (currentNodes.size() != index) {
+            TreeNode treeNode = currentNodes.get(index);
+            TreeNode left = treeNode.left;
+            TreeNode right = treeNode.right;
+            if (left != null) {
+                currentNodes.add(left);
+            }
+            if (right != null) {
+                currentNodes.add(right);
+            }
+            index++;
+        }
+        return currentNodes.stream().map(TreeNode::getValue).collect(Collectors.toList());
     }
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        return Collections.emptyList();
+        List<Integer> result = new ArrayList<>();
+        recursiveDfs(result, root);
+        return result;
+    }
+
+    public static void recursiveDfs(List<Integer> result, TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+
+        result.add(root.getValue());
+        recursiveDfs(result, left);
+        recursiveDfs(result, right);
     }
 
     public static class TreeNode {
@@ -41,6 +72,10 @@ public class BinaryTree {
 
         public TreeNode(int value) {
             this.value = value;
+        }
+
+        public int getValue() {
+            return value;
         }
     }
 }
