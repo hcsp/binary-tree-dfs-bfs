@@ -1,6 +1,5 @@
 package com.github.hcsp.algorithm;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,47 +26,12 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        List<Integer> list = new ArrayList<>();
-        list.add(root.value);
-        bfsRecursive(list, root);
-        return list;
+        return Collections.emptyList();
     }
-
-    private static void bfsRecursive(List<Integer> list, TreeNode root) {
-        if (root.left != null && list.add(root.left.value)) {
-        }
-        if (root.right != null && list.add(root.right.value)) {
-            if (root.left != null) {
-                bfsRecursive(list, root.left);
-            }
-            bfsRecursive(list, root.right);
-        }
-    }
-
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        List<Integer> list = new ArrayList<>();
-        list.add(root.value);
-        dfsRecursive(list, root);
-        return list;
-    }
-
-    private static void dfsRecursive(List<Integer> list, TreeNode root) {
-        if (root.left != null) {
-            list.add(root.left.value);
-            dfsRecursive(list, root.left);
-        }
-        if (root.right != null) {
-            list.add(root.right.value);
-            dfsRecursive(list, root.right);
-        }
+        return Collections.emptyList();
     }
 
     public static class TreeNode {
