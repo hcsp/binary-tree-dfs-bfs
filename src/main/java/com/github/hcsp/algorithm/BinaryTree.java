@@ -1,7 +1,9 @@
 package com.github.hcsp.algorithm;
 
-import java.util.Collections;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -26,12 +28,47 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        return Collections.emptyList();
+        if (root == null) {
+            return new ArrayList<>(0);
+        }
+
+        List<Integer> result = new ArrayList<>();
+
+        ArrayDeque<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.remove();
+            result.add(node.getValue());
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+        return result;
     }
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        return Collections.emptyList();
+        if (root == null) {
+            return new ArrayList<>(0);
+        }
+
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            result.add(node.getValue());
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+        return result;
     }
 
     public static class TreeNode {
@@ -39,8 +76,27 @@ public class BinaryTree {
         TreeNode left;
         TreeNode right;
 
+        public int getValue() {
+            return value;
+        }
+
+        public TreeNode getLeft() {
+            return left;
+        }
+
+        public TreeNode getRight() {
+            return right;
+        }
+
         public TreeNode(int value) {
             this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "TreeNode{" +
+                    "value=" + value +
+                    '}';
         }
     }
 }
