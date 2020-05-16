@@ -1,6 +1,11 @@
 package com.github.hcsp.algorithm;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -60,7 +65,7 @@ public class BinaryTree {
                 stack.push(tree.right);
             }
             if (tree.left != null) {
-                stack.push((tree.left));
+                stack.push(tree.left);
             }
             list.add(tree.value);
         }
