@@ -1,7 +1,12 @@
 package com.github.hcsp.algorithm;
 
+import javax.swing.tree.TreeNode;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.TreeMap;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -26,12 +31,38 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        return Collections.emptyList();
+        List<Integer> integerList = new ArrayList<>();
+        ArrayDeque<TreeNode> treeNodes = new ArrayDeque<>();
+        treeNodes.add(root);
+        while (!treeNodes.isEmpty()) {
+            TreeNode node = treeNodes.remove();
+            integerList.add(node.value);
+            if (node.left != null) {
+                treeNodes.add(node.left);
+            }
+            if (node.right != null) {
+                treeNodes.add(node.right);
+            }
+        }
+        return integerList;
     }
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        return Collections.emptyList();
+        LinkedList<TreeNode> treeNodes = new LinkedList<>();
+        List<Integer> integerList = new ArrayList<>();
+        TreeNode node = root;
+        while (node != null || !treeNodes.isEmpty()) {
+            if (node!=null) {
+                integerList.add(node.value);
+                treeNodes.push(node);
+                node = node.left;
+            }else {
+                TreeNode node1=treeNodes.pop();
+                node=node1.right;
+            }
+        }
+        return integerList;
     }
 
     public static class TreeNode {
