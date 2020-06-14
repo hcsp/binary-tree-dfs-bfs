@@ -1,12 +1,9 @@
 package com.github.hcsp.algorithm;
 
-import javax.swing.tree.TreeNode;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeMap;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -53,13 +50,13 @@ public class BinaryTree {
         List<Integer> integerList = new ArrayList<>();
         TreeNode node = root;
         while (node != null || !treeNodes.isEmpty()) {
-            if (node!=null) {
+            if (node != null) {
                 integerList.add(node.value);
                 treeNodes.push(node);
                 node = node.left;
-            }else {
-                TreeNode node1=treeNodes.pop();
-                node=node1.right;
+            } else {
+                TreeNode node1 = treeNodes.pop();
+                node = node1.right;
             }
         }
         return integerList;
