@@ -1,9 +1,7 @@
 package com.github.hcsp.algorithm;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -28,45 +26,12 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedBlockingQueue<>();
-        List<Integer> list = new ArrayList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            list.add(node.value);
-            if (node.left != null) {
-                queue.add(node.left);
-            }
-            if (node.right != null) {
-                queue.add(node.right);
-            }
-        }
-        return list;
-    }
-
-    public static void bfsRecursive(TreeNode node) {
-        if (node != null) {
-            System.out.println(node.value);
-            bfsRecursive(node.left);
-            bfsRecursive(node.right);
-        }
+        return Collections.emptyList();
     }
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        dfsRecursive(root, list);
-        return list;
-    }
-
-    public static void dfsRecursive(TreeNode node, List<Integer> list) {
-        list.add(node.value);
-        if (node.left != null) {
-            dfsRecursive(node.left, list);
-        }
-        if (node.right != null) {
-            dfsRecursive(node.right, list);
-        }
+        return Collections.emptyList();
     }
 
     public static class TreeNode {
