@@ -1,6 +1,7 @@
 package com.github.hcsp.algorithm;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -23,42 +24,14 @@ public class BinaryTree {
         System.out.println(dfs(node1));
     }
 
-    // 请实现二叉树的广度优先遍历（层次遍历） 从上到下，从左到右
+    // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        // 队列是先进先出
-        Queue<TreeNode> queue = new LinkedList<>();
-        List<Integer> integerList = new ArrayList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            // 返回第一个元素并删除
-            TreeNode node = queue.poll();
-            integerList.add(node.value);
-            if (node.left != null) {
-                queue.add(node.left);
-            }
-            if (node.right != null) {
-                queue.add(node.right);
-            }
-        }
-        return integerList;
+        return Collections.emptyList();
     }
 
-    // 请实现二叉树的深度优先遍历（前序）即根遍历
+    // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        Stack<TreeNode> stack = new Stack(); // 栈
-        List<Integer> integerList = new ArrayList<>();
-        stack.push(root);
-        while (stack.isEmpty() == false) {
-            TreeNode node = stack.pop();
-            integerList.add(node.value);
-            if (node.right != null) {
-                stack.push(node.right);
-            }
-            if (node.left != null) {
-                stack.push(node.left);
-            }
-        }
-        return integerList;
+        return Collections.emptyList();
     }
 
     public static class TreeNode {
