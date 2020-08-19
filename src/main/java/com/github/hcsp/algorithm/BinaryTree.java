@@ -1,12 +1,11 @@
 package com.github.hcsp.algorithm;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Deque;
 import java.util.List;
-import java.util.Set;
 
 public class BinaryTree {
-    static Set<Integer> set = new HashSet<>();
     static List<Integer> list = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -31,21 +30,27 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-//        System.out.println(root.value);
-        set.add(root.value);
-        if (root.left != null) {
-            set.add(root.left.value);
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return new ArrayList<>();
+        } else {
+            deque.add(root);
         }
-        if (root.right != null) {
-            set.add(root.right.value);
+        while (!deque.isEmpty()) {
+            int size = deque.size();
+            for (int i = 0; i < size; i++) {
+                final TreeNode t = deque.remove();
+                res.add(t.value);
+                if (t.left != null) {
+                    deque.add(t.left);
+                }
+                if (t.right != null) {
+                    deque.add(t.right);
+                }
+            }
         }
-        if (root.left != null) {
-            bfs(root.left);
-        }
-        if (root.right != null) {
-            bfs(root.right);
-        }
-        return new ArrayList<>(set);
+        return res;
     }
 
     // 请实现二叉树的深度优先遍历（前序）
