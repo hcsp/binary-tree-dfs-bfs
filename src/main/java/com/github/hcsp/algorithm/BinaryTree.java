@@ -1,6 +1,7 @@
 package com.github.hcsp.algorithm;
 
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BinaryTree {
@@ -20,18 +21,56 @@ public class BinaryTree {
 
         node3.right = node6;
 
-        System.out.println(bfs(node1));
+        //System.out.println(bfs(node1));
         System.out.println(dfs(node1));
     }
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        return Collections.emptyList();
+        List<Integer> list = new ArrayList<>();
+        bfs(list, root);
+        return list;
     }
+
+    private static void bfs(List<Integer> list, TreeNode root) {
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (true) {
+            root = queue.poll();
+            if (root != null) {
+                list.add(root.value);
+            } else {
+                break;
+            }
+            if (root.left != null) {
+                queue.offer(root.left);
+            }
+            if (root.right != null) {
+                queue.offer(root.right);
+            }
+        }
+    }
+
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        return Collections.emptyList();
+        List<Integer> list = new ArrayList<>();
+        dfs(list, root);
+        return list;
+    }
+
+    private static void dfs(List<Integer> list, TreeNode root) {
+        if (root != null) {
+            list.add(root.value);
+        } else {
+            return;
+        }
+        if (root.left != null) {
+            dfs(list, root.left);
+        }
+        if (root.right != null) {
+            dfs(list, root.right);
+        }
     }
 
     public static class TreeNode {
