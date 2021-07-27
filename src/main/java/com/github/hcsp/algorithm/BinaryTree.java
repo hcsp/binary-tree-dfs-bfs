@@ -1,10 +1,7 @@
 package com.github.hcsp.algorithm;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -29,57 +26,13 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        if (null == root) {
-            return Collections.emptyList();
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        TreeNode temp;
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            temp = queue.poll();
-            result.add(temp.value);
-            if (temp.left != null) {
-                queue.offer(temp.left);
-            }
-            if (temp.right != null) {
-                queue.offer(temp.right);
-            }
-        }
-
-        return result;
+        return Collections.emptyList();
     }
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        if (null == root) {
-            return Collections.emptyList();
-        }
-        List<Integer> result = new ArrayList<>();
-        result.add(root.value);
-        result.addAll(dfs(root.left));
-        result.addAll(dfs((root.right)));
-        return result;
+        return Collections.emptyList();
     }
-
-    // 请实现二叉树的深度优先遍历（中序）
-//    public static List<Integer> dfs(TreeNode root) {
-//        if (null == root) return Collections.emptyList();
-//        List<Integer> result = new ArrayList<>(dfs(root.left));
-//        result.add(root.value);
-//        result.addAll(dfs((root.right)));
-//        return result;
-//    }
-
-    // 请实现二叉树的深度优先遍历（后序）
-//    public static List<Integer> dfs(TreeNode root) {
-//        if (null == root) return Collections.emptyList();
-//        List<Integer> result = new ArrayList<>();
-//        result.addAll(dfs((root.left)));
-//        result.addAll(dfs((root.right)));
-//        result.add(root.value);
-//        return result;
-//    }
 
     public static class TreeNode {
         int value;
