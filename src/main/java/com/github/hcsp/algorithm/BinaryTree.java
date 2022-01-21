@@ -1,6 +1,10 @@
 package com.github.hcsp.algorithm;
 
-import java.util.*;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -31,10 +35,10 @@ public class BinaryTree {
         while (!treeNodeArrayDeque.isEmpty()) {
             TreeNode node = treeNodeArrayDeque.removeFirst();
             result.add(node.value);
-            if(node.left != null) {
+            if (node.left != null) {
                 treeNodeArrayDeque.add(node.left);
             }
-            if(node.right != null) {
+            if (node.right != null) {
                 treeNodeArrayDeque.add(node.right);
             }
         }
@@ -51,10 +55,10 @@ public class BinaryTree {
             result.add(node.value);
 
             // 测试用例里是 前序遍历
-            if(node.right != null) {
+            if (node.right != null) {
                 treeNodeStack.push(node.right);
             }
-            if(node.left != null) {
+            if (node.left != null) {
                 treeNodeStack.push(node.left);
             }
         }
