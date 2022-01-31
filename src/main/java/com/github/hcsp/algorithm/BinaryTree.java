@@ -26,7 +26,7 @@ public class BinaryTree {
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if(root == null){
+        if (root == null) {
             return list;
         }
         Queue<TreeNode> queue = new LinkedList<>();
