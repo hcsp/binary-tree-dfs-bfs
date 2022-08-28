@@ -1,7 +1,6 @@
 package com.github.hcsp.algorithm;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class BinaryTree {
     public static void main(String[] args) {
@@ -26,12 +25,43 @@ public class BinaryTree {
 
     // 请实现二叉树的广度优先遍历（层次遍历）
     public static List<Integer> bfs(TreeNode root) {
-        return Collections.emptyList();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        List<Integer> result = new ArrayList<>();
+
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            result.add(node.value);
+
+            //queue先进先出，所以先左后右
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+        return result;
     }
 
     // 请实现二叉树的深度优先遍历（前序）
     public static List<Integer> dfs(TreeNode root) {
-        return Collections.emptyList();
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> result = new ArrayList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            result.add(node.value);
+
+            //stack先进后出，所以先右后左
+            if (node.right != null) {
+                stack.add(node.right);
+            }
+            if (node.left != null) {
+                stack.add(node.left);
+            }
+        }
+        return result;
     }
 
     public static class TreeNode {
